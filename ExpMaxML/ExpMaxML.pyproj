@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fcc4bf95-4e9f-4849-90f9-5491b86828c6</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>ExpMaxML.py</StartupFile>
+    <StartupFile>Test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,10 +22,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ExpMaxML.py" />
+    <Compile Include="StatFunctions\EM.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="StatFunctions\PDF.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="StatFunctions\StatObj.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="StatFunctions\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Test.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
