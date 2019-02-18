@@ -8,7 +8,11 @@ class Stat(object):
         self.pi=pi
 
     def SetInitialValues(self,cluster,data):
+        
         spltdData = list(self.split(np.sort(data),cluster))
+        self.pi = []
+        self.mean = []
+        self.variance = []
         for x in range(cluster):
             #temp = yield spltdData
             self.pi.append(1/cluster)

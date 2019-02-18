@@ -2,7 +2,7 @@ from StatFunctions.StatObj import *
 import numpy as np
 from StatFunctions.PDF import *
 import math
-
+import matplotlib.pyplot as plt 
 
 def EStep(data,cluster,Stat):
         rValue = np.zeros((len(data),cluster))  
@@ -37,3 +37,37 @@ def LogLikelyHood(data,Stat: Stat):
         term3 = np.sum((np.power(np.subtract(data,Stat.mean[x]),2))/(-1*2*varS),axis=0)
         logLik += term1+term2+term3
     return logLik
+
+def FindOptimalClusters(dataArr):
+    optCluster = 0
+    for cluster in range(2,10):
+        logs=[]
+        print('Checking feasibility of Cluster:' + str(cluster))
+        data= np.empty(len(dataArr))
+        np.copyto(data,dataArr)
+        stat = Stat()
+        stat.SetInitialValues(cluster,data)
+        for x in range(10):
+            #print('Iteration '+str(x))
+            rValue = EStep(data,cluster,stat)
+            stat = MStep(data,cluster,stat,rValue)
+            #print('Printing Mean')
+            #print(*stat.mean, sep = ", ")
+            #print('Printing Variance')
+            #print(*stat.variance, sep = ", ")
+            logLikely = LogLikelyHood(data,stat)
+            #print('Printing Log Likelyhood')
+            #print(logLikely)
+            logs.append(logLikely)
+            #if x!=0:
+            #    delts.append(logs[x]-logs[x-1])
+            #    if len(delts)>1 and (delts[len(delts)-2] != 0 or (delts[len(delts)-2]-delts[len(delts)-1])/delts[len(delts)-2]<.1):
+            #        break
+        if all(x<y for x, y in zip(logs, logs[1:])):
+            optCluster = cluster
+            break
+        #plt.title('Likelihood Convergence')
+        #plt.plot(logs)
+        #plt.ylabel('Likelihood')
+        #plt.show()
+    return optCluster
