@@ -34,9 +34,6 @@
     <Compile Include="StatFunctions\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Test.py">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="StatFunctions\" />
