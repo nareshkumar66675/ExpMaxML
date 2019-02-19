@@ -90,7 +90,7 @@ try:
 
         ''' Execute the Alogorithm 
             1. Execute E Step - Calculates probability of each data for each cluster
-            2. Execute M Step - Calculate the weight and update mean,stat and pi
+            2. Execute M Step - Calculate the weigh and update mean,stat and pi
             3. Find Log likelihood
             4. If Converges Exit, else Repeat
         '''
