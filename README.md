@@ -25,7 +25,23 @@ It is an ML algorithm using **__Expectation Maximization using Gaussian Mixture 
 2. Navigate to folder ExpMaxML
 3. Execute 'python ExpMaxML.py'
 ```
+## Tested Attributes
+##### Liver
 
+>Albumin - Very well Tested
+
+>Alamine_Aminotransferase
+
+>Total_Bilirubin
+
+##### Wine
+>fixed Acidity - Very well Tested
+
+>Free Sulphur dioxide
+
+>Residual Sugar
+
+##### Custom - Experimental
 # Sample Execution
 
 #### 1. Select DataSet
